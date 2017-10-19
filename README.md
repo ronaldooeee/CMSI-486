@@ -81,4 +81,4 @@ The various "indices" are arbitrary integers that serve to normalize the data, a
 
 ## § 1.5
 
-TODO
+![alt text](https://github.com/ronaldooeee/CMSI-486/blob/master/Prelimnary%20ERD%20for%20Database%20Project.png)
