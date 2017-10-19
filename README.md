@@ -20,39 +20,64 @@ We will be compiling various vehicle metrics and performance-related data - such
 Say, for example, a user wishes to look up cars with 0-60 acceleration times of less than 5 seconds. Then they could compose a query something to the effect of:
 
 ```SQL
-SELECT * FROM Cars WHERE ZeroSixty < 5
+SELECT * FROM Car WHERE ZeroSixty < 5
 ```
 
 Of course, this could potentially return a large variety of cars. What if a specific subset of users are only interested in cars that were manufactured by Ferrari? Then they could do something like this:
 
 ```SQL
-SELECT * FROM Cars WHERE Make='Ferrari'
+SELECT * FROM Car WHERE Make='Ferrari'
 ```
 
 If they wish to combine the two queries, and refine the result to return only the names of those Ferrari models capable of 0-60 acceleration of less than 5 seconds, then the following query should give it to them:
 
 
 ```SQL
-SELECT Model FROM Cars WHERE ZeroSixty < 5 AND Make="Ferrari"
+SELECT Model FROM Car WHERE ZeroSixty < 5 AND Make="Ferrari"
 ```
 
 Now let's look at something else. So far, we've only examined one type of performance data. What if the user wants to know which cars that are capable of a given minimum top speed and have very fast acceleration off the line, but isn't interested in the rest of the data for that car?
 
 ```SQL
-SELECT Make, Model FROM Cars WHERE ZeroSixty < 5 AND TopSpeed >= 150
+SELECT Make, Model FROM Car WHERE ZeroSixty < 5 AND TopSpeed >= 150
 ```
 
 Lastly, let's look at a potential edge case. No one should _really_ care only about the vehicles' “demographic” data; what if someone wanted to examine only the weights of every car in the database, perhaps for statistical analysis? Naturally, this is possible:
 
 ```SQL
-SELECT Weight FROM Cars
+SELECT Weight FROM Car
 ```
 
 The possibilities are limited only by the user's imagination and the available data.
 
 ## § 1.4
 
-TODO
+Our schema will look a little something like this:
+
+#### Manufacturer Table: 
+- Manufacturer Index (Primary Key)
+- Manufacturer Name
+- Country of Origin
+
+#### Car Table
+- Manufacturer Index
+- Car Index (Primary Key) 
+- Model
+- Year
+- MSRP
+- Performance Index
+
+#### Performance Table:
+- Performance Index (Primary Key)
+- Top speed (mph)
+- 0-60 acceleration time
+- Horsepower (bhp)
+- Weight
+- Dimensions
+
+The Manufacturer table contains information about the manufacturers of the cars themselves. The Car table contains all of the identifying and demographic information about the car, as well as relations to their respective manufacturers and performance data. The Performance table contains the meat of our project: all of the actual performance data for every car in our database.
+
+The various "indices" are arbitrary integers that serve to normalize the data, as well as provide unique primary keys for both the cars and arbitrary numerical performance data. The rest of the attributes should be relatively self-explanatory.
 
 ## § 1.5
 
