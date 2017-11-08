@@ -3,13 +3,14 @@
 (Ron's logo here)
 
 ### A database for performance car info
+#### By gearheads, for gearheads
 ### Built by Geoff Colman and Ronald Uy
 
 ## § 1.1
 
-How many of us grew up coveting one or more iconic cars? Perhaps a 1957 Corvette? Or a 1967 Mustang? The “Me Generation” of the ‘80s likely yearned for something more along the lines of Thomas Magnum’s (well, Robin Masters’) Ferrari 308 GTS or Lamborghini Countach. Millennials might identify more with a 2004 Porsche Carrera GT or a 2008 Nissan GT-R. Whatever the vehicle, there is no denying the visceral appeal, the _magnetism_ of beautiful, powerful sports cars. It is for this reason that we sought to create a database cataloging a variety of information - both “demographic” particulars (such as curb weight) and performance - about the finest machines ever to grace a blacktop.
+How many of us grew up coveting any of a huge number of iconic cars? Perhaps a 1957 Corvette? Or a 1967 Mustang? The “Me Generation” of the ‘80s likely yearned for something more along the lines of Thomas Magnum’s (well, Robin Masters’) Ferrari 308 GTS or Lamborghini Countach. Millennials might identify more with a 2004 Porsche Carrera GT or a 2008 Nissan GT-R. Whatever the vehicle, there is no denying the visceral appeal, the _magnetism_ of beautiful, powerful sports cars. They can evoke emotions from multiple levels of human consciousness, from the heady, technical appeal of the advanced engineering of a computer-controlled center differential to the animal lust of a roaring Italian V-12 engine. It is for this reason that we sought to create a database cataloging a variety of information - both “demographic” particulars (items such as curb weight and dimensions) and performance - about the finest machines ever to grace a blacktop.
 
-Potential users of this system will be, broadly, anyone interested in automobiles. More specifically, we have a few specific subcategories thereof in mind: we want to make it easy for “car junkies” or “gearheads,” motorsport enthusiasts, and new or novice drivers looking to learn more about high-performance cars. Additionally, as racing video games and simulations become more and more advanced and realistic, we see our system as a valuable reference tool. Players or participants will be able to easily look up information about a potential car they wish to test drive within the game or simulator, even if that data isn’t obviously accessible within the constraints of the game or simulation.
+Potential users of this system will be, broadly, anyone interested in automobiles. More specifically, we have a few specific subcategories thereof in mind: we want to make it easy for “car junkies” or “gearheads,” motorsport enthusiasts, and new or novice drivers looking to learn more about high-performance cars to look up a variety of information about a chosen vehicle. Additionally, as racing video games and simulations become more and more advanced and realistic, with more and more sophisticated physics engines, we see our system as a valuable reference tool. Players or participants will be able to easily look up information about a potential car they wish to test-drive within the game or simulator, even if that data isn’t readily available within the constraints of the game or simulation.
 
 ## § 1.2
 
