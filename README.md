@@ -16,6 +16,8 @@ Potential users of this system will be, broadly, anyone interested in automobile
 
 We will be compiling vehicle metrics and performance-related data - such as top speed, acceleration, and engine power output - for a given vehicle make and model. Descriptive and performance metrics will be quoted in their respective industry standard Imperial units of measurement - pounds, inches, miles per hour, horsepower, etc.
 
+For maximum generality, this schema is intended to be "forward-compatible," or expandable should potential future users/customers wish to add additional performance metrics, vehicle specifics, or information about manufacturers.
+
 #### Manufacturer Table: 
 - Manufacturer Index (Primary Key)
   - An arbitrary integer generated for the express purpose of serving as a unique identifier for each manufacturer.
@@ -30,11 +32,11 @@ We will be compiling vehicle metrics and performance-related data - such as top 
 - Car Index (Primary Key)
   - An arbitrary integer generated for the express purpose of serving as a unique identifier for each car.
 - Model
-  - A character string consisting of the common American name of the car and any potential modifiers ("GT," "Sport," etc.)
+  - A character string consisting of the common American name of the car along with any potential modifiers ("GT," "Sport," etc.).
 - Year
-  - A 4-digit integer consisting of the model-year of the specific car from which the data were drawn.
+  - A 4-digit integer consisting of the Gregorian model-year of the specific car from which the data were drawn.
 - MSRP
-  - An integer expressing (suggested) retail price of the car from dealers (rounded to the nearest dollar) at the time of its manufacture and sale. For "legacy" vehicles built prior to the 21st century, this value will not be readily comparable to that of newer cars, and - as with some extremely exclusive contemporary cars for which no exact price is readily available - some approximations have been made with the source data.
+  - An integer expressing (suggested) US retail price of the car from dealers (rounded to the nearest dollar) at the time of its manufacture and sale. For "legacy" vehicles built prior to the 21st century, this value will not be readily comparable to that of newer cars, and - as with some extremely exclusive contemporary cars for which no exact price is readily available - some approximations have been made with the source data.
 - Performance Index
   - A foreign key into the Performance Table, to match a car with its relevant performance data.
 
@@ -44,15 +46,15 @@ We will be compiling vehicle metrics and performance-related data - such as top 
 - Top speed
   - A floating point number expressing the car's maximum speed in miles per hour (mph).
 - Acceleration
-  - A floating point number expressing the number of seconds the car takes to reach 60 mph (though data for European cars sometimes references 62 mph due to the Imperial/SI conversion) from a standing start.
+  - A floating point number expressing the number of seconds the car takes to reach 60 mph (though data for European cars sometimes references 62 mph due to the imperfect Imperial/SI conversion) from a standing start.
 - Horsepower
   - An integer expressing the car's engine's peak power output in Imperial brake horsepower (bhp).
 - Weight
-  - An integer expressing the car's curb weight (laden with all relevant fluids and rounded to the nearest whole number) in pounds.
+  - An integer expressing the car's curb weight (laden with all relevant fluids) in pounds.
 - Wheelbase
   - A floating point value expressing the distance between the front and rear wheel centerlines in inches. This, rather than overall length, is the "effective" length of the car for handling purposes.
 - Track
-  - A floating point value expressing the distance between the left and right wheel hubs in inches. This, rather than overall width, is the "effective" width of the car for handling purposes, but overall width has been occasionally used where the actual track data is not readily available. In rare occasions where the front and rear tracks are assymetrical, the average of the two has been given.
+  - A floating point value expressing the distance between the left and right wheel hubs in inches. This, rather than overall width, is the "effective" width of the car for handling purposes, but overall width has been occasionally used where the actual track data is not readily available. In situations in which the front and rear tracks are not identical, the average of the two has been given.
 
 ## § 1.3
 
@@ -120,4 +122,4 @@ The various "indices" are arbitrary integers that serve to normalize the data, a
 
 ## § 1.5
 
-![alt text](https://github.com/ronaldooeee/CMSI-486/blob/master/Preliminary%20ERD%20for%20Database%20Project.png)
+![Entity-Relationship Diagram](https://github.com/ronaldooeee/CMSI-486/blob/master/Final%20ERD%20for%20Database%20Project.png)
