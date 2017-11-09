@@ -6,15 +6,53 @@
 #### By gearheads, for gearheads
 ### Built by Geoff Colman and Ronald Uy
 
-## § 1.1
+## § 2.1
 
 How many of us grew up coveting any of a huge number of iconic cars? Perhaps a 1957 Corvette? Or a 1967 Mustang? The “Me Generation” of the ‘80s likely yearned for something more along the lines of Thomas Magnum’s (well, Robin Masters’) Ferrari 308 GTS or Lamborghini Countach. Millennials might identify more with a 2004 Porsche Carrera GT or a 2008 Nissan GT-R. Whatever the vehicle, there is no denying the visceral appeal, the _magnetism_ of beautiful, powerful sports cars. They can evoke emotions from multiple levels of human consciousness, from the heady, technical appeal of the advanced engineering of a computer-controlled center differential to the animal lust of a roaring Italian V-12 engine. It is for this reason that we sought to create a database cataloging a variety of information - both “demographic” particulars (items such as curb weight and dimensions) and performance - about the finest machines ever to grace a blacktop.
 
 Potential users of this system will be, broadly, anyone interested in automobiles. More specifically, we have a few specific subcategories thereof in mind: we want to make it easy for “car junkies” or “gearheads,” motorsport enthusiasts, and new or novice drivers looking to learn more about high-performance cars to look up a variety of information about a chosen vehicle. Additionally, as racing video games and simulations become more and more advanced and realistic, with more and more sophisticated physics engines, we see our system as a valuable reference tool. Players or participants will be able to easily look up information about a potential car they wish to test-drive within the game or simulator, even if that data isn’t readily available within the constraints of the game or simulation.
 
-## § 1.2
+## § 2.2
 
-We will be compiling various vehicle metrics and performance-related data - such as top speed, acceleration, engine output (i.e., power/torque), braking distance, and the like - for a given vehicle make and model. Descriptive and performance metrics will be quoted in their respective industry standard units of (typically Imperial) measurement - pounds/pound-feet, miles per hour, horsepower, etc.
+We will be compiling vehicle metrics and performance-related data - such as top speed, acceleration, and engine power output - for a given vehicle make and model. Descriptive and performance metrics will be quoted in their respective industry standard Imperial units of measurement - pounds, inches, miles per hour, horsepower, etc.
+
+#### Manufacturer Table: 
+- Manufacturer Index (Primary Key)
+  - An arbitrary integer generated for the express purpose of serving as a unique identifier for each manufacturer.
+- Manufacturer Name
+  - A character string containing the common name (i.e., omitting any "Motors," "Company," etc. suffixes) of the car brand in question.
+- Country of Origin
+  - A character string containing the English name of the country in which the manufacturer is based, and some have been abbreviated. The United States, for example, is "USA."
+
+#### Car Table
+- Manufacturer Index
+  - A foreign key into the Manufacturer Table, to match a car with its manufacturer.
+- Car Index (Primary Key)
+  - An arbitrary integer generated for the express purpose of serving as a unique identifier for each car.
+- Model
+  - A character string consisting of the common American name of the car and any potential modifiers ("GT," "Sport," etc.)
+- Year
+  - A 4-digit integer consisting of the model-year of the specific car from which the data were drawn.
+- MSRP
+  - An integer expressing (suggested) retail price of the car from dealers (rounded to the nearest dollar) at the time of its manufacture and sale. For "legacy" vehicles built prior to the 21st century, this value will not be readily comparable to that of newer cars, and - as with some extremely exclusive contemporary cars for which no exact price is readily available - some approximations have been made with the source data.
+- Performance Index
+  - A foreign key into the Performance Table, to match a car with its relevant performance data.
+
+#### Performance Table:
+- Performance Index (Primary Key)
+  - An arbitrary integer generated for the express purpose of serving as a unique identifier for each row of performance data.
+- Top speed
+  - A floating point number expressing the car's maximum speed in miles per hour (mph).
+- Acceleration
+  - A floating point number expressing the number of seconds the car takes to reach 60 mph (though data for European cars sometimes references 62 mph due to the Imperial/SI conversion) from a standing start.
+- Horsepower
+  - An integer expressing the car's engine's peak power output in Imperial brake horsepower (bhp).
+- Weight
+  - An integer expressing the car's curb weight (laden with all relevant fluids and rounded to the nearest whole number) in pounds.
+- Wheelbase
+  - A floating point value expressing the distance between the front and rear wheel centerlines in inches. This, rather than overall length, is the "effective" length of the car for handling purposes.
+- Track
+  - A floating point value expressing the distance between the left and right wheel hubs in inches. This, rather than overall width, is the "effective" width of the car for handling purposes, but overall width has been occasionally used where the actual track data is not readily available. In rare occasions where the front and rear tracks are assymetrical, the average of the two has been given.
 
 ## § 1.3
 
