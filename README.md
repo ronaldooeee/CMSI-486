@@ -12,11 +12,13 @@ How many of us grew up coveting any of a huge number of iconic cars? Perhaps a 1
 
 Potential users of this system will be, broadly, anyone interested in automobiles. More specifically, we have a few specific subcategories thereof in mind: we want to make it easy for “car junkies” or “gearheads,” motorsport enthusiasts, and new or novice drivers looking to learn more about high-performance cars to look up a variety of information about a chosen vehicle. Additionally, as racing video games and simulations become more and more advanced and realistic, with more and more sophisticated physics engines, we see our system as a valuable reference tool. Players or participants will be able to easily look up information about a potential car they wish to test-drive within the game or simulator, even if that data isn’t readily available within the constraints of the game or simulation.
 
+We will be using the MySQL database engine, as its performance and high portability makes it ideal for scalability (car manufacturers will continually produce new models, so new data will need to be added at least once each model-year), or for users who wish to expand upon our implementation. For maximum generality, our system is intended to be "forward-compatible," or expandable should potential future users/customers wish to add additional performance metrics, vehicle specifics, or information about manufacturers.
+
+
+
 ## § 2.2
 
 We will be compiling vehicle metrics and performance-related data - such as top speed, acceleration, and engine power output - for a given vehicle make and model. Descriptive and performance metrics will be quoted in their respective industry standard Imperial units of measurement - pounds, inches, miles per hour, horsepower, etc.
-
-For maximum generality, this schema is intended to be "forward-compatible," or expandable should potential future users/customers wish to add additional performance metrics, vehicle specifics, or information about manufacturers.
 
 #### Manufacturer Table: 
 - Manufacturer Index (Primary Key)
