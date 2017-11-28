@@ -33,41 +33,41 @@ Data will be normalized across 3 tables for maximum flexibility and generality, 
 The various "indices" are arbitrary integers that serve as relations across the 3 tables, normalizing the data and providing unique primary keys for the cars, the manufacturers, and the arbitrary numerical performance data. The rest of the attributes should be relatively self-explanatory, but further details are discussed below.
 
 #### Manufacturer Table: <a name='manufacturer-table'></a>
-- Manufacturer Index (manufacturer_id) **(Primary Key)**
+- Manufacturer Index (`manufacturer_id`) **(Primary Key)**
   - An arbitrary integer generated for the express purpose of serving as a unique identifier for each manufacturer.
-- Manufacturer Name (manufacturer_name)
+- Manufacturer Name (`manufacturer_name`)
   - A 32-byte character string containing the common English name (i.e., omitting any "Motors," "Company," etc. suffixes) of the car brand in question.
-- Country of Origin (country)
+- Country of Origin (`country`)
   - A 32-byte character string containing the common English name of the country in which the manufacturer is based, with some abbreviations. The United States, for example, is "USA."
 
 #### Car Table: <a name='car-table'></a>
-- Manufacturer Index (manufacturer_id)
+- Manufacturer Index (`manufacturer_id`)
   - A foreign key into the Manufacturer table, to match a car with its manufacturer.
-- Car Index (car_id) **(Primary Key)**
+- Car Index (`car_id`) **(Primary Key)**
   - An arbitrary integer generated for the express purpose of serving as a unique identifier for each car.
-- Model (model)
+- Model (`model`)
   - A 32-byte character string consisting of the common American name of the car along with any potential modifiers ("GT," "Sport," etc.) that are considered an integral part of the common name. For example, given the myriad variations of the Bugatti Veyron, the respective model names in our database will include the "16.4"/"Grand Sport"/etc. suffixes.
-- Year (year)
+- Year (`year`)
   - A 4-byte integer consisting of the Gregorian model-year of the specific car from which the data were drawn.
-- MSRP (msrp)
+- MSRP (`msrp`)
   - An integer expressing (suggested) US retail price of the car from dealers (rounded to the nearest dollar) at the time of its manufacture and sale. For "legacy" vehicles (such as those built prior to the 21st century), this value will not be readily comparable to that of newer cars, and - as with some extremely exclusive contemporary cars for which no exact price is readily available - some approximations have been made with the source data.
-- Performance Index (performance_id)
+- Performance Index (`performance_id`)
   - A foreign key into the Performance table, to match a car with its relevant performance data.
 
 #### Performance Table: <a name='performance-table'></a>
-- Performance Index (performance_id) **(Primary Key)**
+- Performance Index (`performance_id`) **(Primary Key)**
   - An arbitrary integer generated for the express purpose of serving as a unique identifier for each row of performance data.
-- Top speed (top_speed)
+- Top speed (`top_speed`)
   - A 3-byte integer expressing the car's maximum speed in miles per hour (mph) rounded to the nearest whole number.
-- Acceleration (acceleration)
+- Acceleration (`acceleration`)
   - A floating point number expressing the number of seconds the car takes to reach 60 mph (though data for European cars sometimes references 62 mph due to the imperfect Imperial/SI conversion) from a standing start.
-- Horsepower (bhp)
+- Horsepower (`bhp`)
   - A 4-byte integer expressing the car's engine's peak power output in Imperial brake horsepower (bhp).
-- Weight (weight)
+- Weight (`weight`)
   - A 4-byte integer expressing the car's curb weight (laden with all relevant fluids) in pounds.
-- Wheelbase (wheelbase)
+- Wheelbase (`wheelbase`)
   - A floating point value expressing the distance between the front and rear wheel centerlines in inches. This, rather than overall length, is the "effective" length of the car for handling purposes.
-- Track (track)
+- Track (`track`)
   - A floating point value expressing the distance between the left and right wheel hubs in inches. This, rather than overall width, is the "effective" width of the car for handling purposes, but overall width has been occasionally used where the actual track data is not readily available. In situations in which the front and rear tracks are not identical, the average of the two has been given.
 
 ## Examples
