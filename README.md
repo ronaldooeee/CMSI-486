@@ -8,13 +8,13 @@
 
 ## Table of Contents
 
-[I. Introduction](##Introduction)
-[II. Schema/Data Dictionary](##Schema)
-  [A. Manufacturer Table](####manufacturer-table)
-  [B. Car Table](####car-table)
-  [C. Performance Table](####performance-table)
-[III. Examples](##Examples)
-[IV. Entity-Relationship Diagram](##erd)
+[I. Introduction](#introduction)
+[II. Schema/Data Dictionary](#schema)
+  [A. Manufacturer Table](#manufacturer-table-)
+  [B. Car Table](#car-table-)
+  [C. Performance Table](#performance-table-)
+[III. Examples](#examples)
+[IV. Entity-Relationship Diagram](#erd)
 
 ## Introduction
 
