@@ -8,13 +8,13 @@
 
 ## Table of Contents
 
-[I. Introduction](#introduction)
-[II. Schema/Data Dictionary](#schema)
-  [A. Manufacturer Table](#manufacturer-table-)
-  [B. Car Table](#car-table-)
-  [C. Performance Table](#performance-table-)
-[III. Examples](#examples)
-[IV. Entity-Relationship Diagram](#erd)
+[I. Introduction](#introduction)  
+[II. Schema/Data Dictionary](#schema)  
+  [A. Manufacturer Table](#manufacturer-table-)  
+  [B. Car Table](#car-table-)  
+  [C. Performance Table](#performance-table-)  
+[III. Examples](#examples)  
+[IV. Entity-Relationship Diagram](#erd)  
 
 ## Introduction
 
@@ -75,26 +75,30 @@ The various "indices" are arbitrary integers that serve as relations across the 
 Say, for example, a user wishes to look up all the data for cars with 0-60 acceleration times of less than 5 seconds. Then they could compose a query something to the effect of:
 
 ```SQL
-SELECT * FROM car NATURAL JOIN manufacturer NATURAL JOIN performance WHERE acceleration < 5;
+SELECT * FROM car NATURAL JOIN manufacturer NATURAL JOIN performance
+    WHERE acceleration < 5;
 ```
 
 Of course, this could potentially return a large variety of cars. What if a specific subset of users are only interested in seeing all the data for cars that were manufactured by Ferrari? Then they could do something like this:
 
 ```SQL
-SELECT * FROM car NATURAL JOIN manufacturer NATURAL JOIN performance WHERE manufacturer_name='Ferrari';
+SELECT * FROM car NATURAL JOIN manufacturer NATURAL JOIN performance
+    WHERE manufacturer_name='Ferrari';
 
 ```
 
 If they wish to combine the two queries, and refine the result to return only the names of those Ferrari models capable of 0-60 acceleration of less than 5 seconds, then the following query should give it to them:
 
 ```SQL
-SELECT model FROM car NATURAL JOIN manufacturer NATURAL JOIN performance WHERE acceleration < 5 AND manufacturer_name='Ferrari';
+SELECT model FROM car NATURAL JOIN manufacturer NATURAL JOIN performance
+    WHERE acceleration < 5 AND manufacturer_name='Ferrari';
 ```
 
 Now let's look at something else. So far, we've only examined one type of performance data. What if the user wants to know which cars that are capable of a given minimum top speed and have very fast acceleration off the line, but isn't interested in the rest of the data for that car?
 
 ```SQL
-SELECT manufacturer_name, model FROM car NATURAL JOIN manufacturer NATURAL JOIN performance WHERE acceleration < 5 AND top_speed >= 150;
+SELECT manufacturer_name, model FROM car NATURAL JOIN manufacturer NATURAL JOIN performance
+    WHERE acceleration < 5 AND top_speed >= 150;
 ```
 
 Lastly, let's look at a potential edge case. No one should *really* care only about the vehicles' “demographic” data; what if someone wanted to examine only the weights of every car in the database, perhaps for statistical analysis? Naturally, this is possible:
