@@ -8,13 +8,14 @@
 
 ## Table of Contents
 
-[I. Introduction](#introduction)  
-[II. Schema/Data Dictionary](#schema)  
-  [A. Manufacturer Table](#manufacturer-table-)  
-  [B. Car Table](#car-table-)  
-  [C. Performance Table](#performance-table-)  
-[III. Examples](#examples)  
-[IV. Entity-Relationship Diagram](#erd)  
+[I. Introduction](#introduction)
+[II. Schema/Data Dictionary](#schema)
+  [A. Manufacturer Table](#manufacturer-table-)
+  [B. Car Table](#car-table-)
+  [C. Performance Table](#performance-table-)
+[III. Setup](#setup)
+[IV. Examples](#examples)
+[V. Entity-Relationship Diagram](#erd)
 
 ## Introduction
 
@@ -70,7 +71,21 @@ The various "indices" are arbitrary integers that serve as relations across the 
 - Track (`track`)
   - A floating point value expressing the distance between the left and right wheel hubs in inches. This, rather than overall width, is the "effective" width of the car for handling purposes, but overall width has been occasionally used where the actual track data is not readily available. In situations in which the front and rear tracks are not identical, the average of the two has been given.
 
+## Setup
+
+Depending upon user preference, specifically with regard to which particular system/interface the user wishes to employ, there are 3 specific ways to set up a new working version of our database and load our data into it.
+
+  1. As it is far and away the simplest approach, we specifically recommend that users make use of the phpMyAdmin tool - whether installed and run locally or off a remote server. Simply import our raw .CSV data files directly from the `data` directory found in this repository using the "Import" feature of the phpMyAdmin client application. The appropriate button can be found on a toolbar near the top of the window once you have created and selected the database itself.
+
+If the user does not wish to utilize the phpMyAdmin utility, then they will need to load the data "manually" using MySQL data definition language. There are two approaches that can be employed: 
+
+  2. The first method requires loading the data, in bulk, from the aforementioned raw .CSV files. Within the **`speedo.sql`** file in this repository, locate the comment block containing the 3 `LOAD DATA INFILE` statements bookended by "------(2)------" marker comments, and remove the multi-line comment tokens on both sides of the block. Do not remove any of the other comment tokens.
+
+  3. Alternatively, insert all the data row-by-row. While this approach is arguably more portable, as the data itself is embedded within the data definition statements, this method does not promote easy extensibility or scalability without additional user support. We therefore do not specifically recommend it for durable, "long-haul" installations. Within the same **`speedo.sql`** file, find the (large) comment block bookended by the "------(3)------" marker comments. It should itself contain 3 large blocks with multiple `INSERT INTO`*`[table]`*`VALUES (`*`[...]`*`);` statements. Remove the multi-line comment tokens surrounding the entire block, but do not remove any other comment tokens.
+
 ## Examples
+
+Let's look at some example use-cases.
 
 Say, for example, a user wishes to look up all the data for cars with 0-60 acceleration times of less than 5 seconds. Then they could compose a query something to the effect of:
 
